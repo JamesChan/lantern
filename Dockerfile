@@ -55,7 +55,7 @@ RUN yum install -y bzip2 && yum clean packages
 # Requisites for genassets.
 RUN curl --silent --location https://rpm.nodesource.com/setup_5.x | bash -
 RUN yum -y install nodejs && yum clean packages
-RUN npm install -g gulp
+RUN npm install cnpm -g --registry=https://registry.npm.taobao.org && cnpm install -g gulp
 
 # Getting Go.
 ENV GO_VERSION go1.6

@@ -8,6 +8,7 @@ DOCKER 		:= $(call get-command,docker)
 GO 		:= $(call get-command,go)
 NODE 		:= $(call get-command,node)
 NPM 		:= $(call get-command,npm)
+CNPM        := $(call get-command,cnpm)
 GULP 		:= $(call get-command,gulp)
 S3CMD 		:= $(call get-command,s3cmd)
 WGET 		:= $(call get-command,wget)
@@ -199,7 +200,7 @@ $(RESOURCES_DOT_GO): require-npm require-gulp
 	git update-index --assume-unchanged $$APP/js/revision.js && \
 	DEST="$@" && \
 	cd $$LANTERN_UI && \
-	$(NPM) install && \
+	$(CNPM) install && \
 	rm -Rf dist && \
 	$(GULP) build && \
 	cd - && \
